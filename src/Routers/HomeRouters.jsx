@@ -3,6 +3,9 @@ import HomeLayout from "../layouts/HomeLayout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Career from "../pages/Career";
+import Profile from "../pages/Profile";
+import Error from "../pages/Error";
+import CategoryNews from "../pages/CategoryNews";
 
 export const router = createBrowserRouter([
     {
@@ -13,14 +16,29 @@ export const router = createBrowserRouter([
                 index: true,
                 element: <Home></Home>
             },
+            
             {
-                path: '/about',
-                Component: About
-            },
-            {
-                path: '/career',
-                Component: Career
+                path: 'category/:id',
+                element: <CategoryNews></CategoryNews>,
+                loader: () => fetch('/news.json')
             }
+            
         ]
+    },
+    {
+        path: '/auth',
+        element: <Profile></Profile>
+    },
+    {
+        path: '/about',
+        Component: About
+    },
+    {
+        path: '/career',
+        Component: Career
+    },
+    {
+        path: '/*',
+        element: <Error></Error> 
     }
 ])

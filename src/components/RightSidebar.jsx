@@ -1,9 +1,14 @@
 import React from 'react';
+import SocialLinks from './SocialLinks';
+import Qzone from './Qzone';
+import SocialLogin from './SocialLogin';
 
 const RightSidebar = () => {
     return (
-        <div>
-            <p className='2xl'>Right Sidebar</p>
+        <div className='sticky top-0 '>
+            <SocialLogin></SocialLogin>
+            <SocialLinks></SocialLinks>
+            <Qzone></Qzone>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Header';
 import LeftSidebar from '../components/LeftSidebar';
@@ -13,21 +13,23 @@ const HomeLayout = () => {
         <MyContainer>
             <header>
                 <Header></Header>
-                <section className='w-11/12 mx-auto'>
+                <section className='mx-auto'>
                     <LatestNews></LatestNews>
                 </section>
                 <nav>
                     <LinksPrimary></LinksPrimary>
                 </nav>
             </header>
-            <main className='flex justify-between'>
-                <section className="left">
-                    <LeftSidebar></LeftSidebar>
+            <main className='grid grid-cols-12 gap-4'>
+                <section className="left col-span-3 sticky top-0 h-fit">
+                    
+                        <LeftSidebar></LeftSidebar>
+               
                 </section>
-                <section className="main">
+                <section className="main col-span-6">
                     <Outlet></Outlet>
                 </section>
-                <section className="right">
+                <section className="right col-span-3">
                     <RightSidebar></RightSidebar>
                 </section>
             </main>
