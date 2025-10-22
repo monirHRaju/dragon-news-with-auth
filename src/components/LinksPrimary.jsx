@@ -1,6 +1,7 @@
 import React from 'react';
 import MyNav from './MyNav';
 import user from '../assets/user.png'
+import { Link } from 'react-router';
 
 const LinksPrimary = () => {
     return (
@@ -15,7 +16,7 @@ const LinksPrimary = () => {
             </div>
             <div className='flex gap-2'>
                 <img src={user} alt="" />
-                <button className='btn btn-primary px-10'>Login</button>
+                <Link to={'/auth/login'} className='btn btn-primary px-10'>Login</Link>
             </div>
         </div>
     );
